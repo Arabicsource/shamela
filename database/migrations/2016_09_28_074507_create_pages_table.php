@@ -4,25 +4,24 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTitlesTable extends Migration
+class CreatePagesTable extends Migration
 {
     /**
      * Run the migrations.
      *
      * @return void
      */
-    public function up()
-    {
-        Schema::create('titles', function (Blueprint $table) {
+    public function up() {
+        Schema::create('pages', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->integer('page')->default(0);
-            $table->integer('level')->default(0);
-            $table->integer('sub')->default(0);
             
-            $table->string('title');
-
+            $table->string('seal');
+            $table->integer('part')->nullable();
+            $table->integer('number')->nullable();
+            
+            $table->longText('text');
             $table->integer('book_id')->unsigned();
+
         });
     }
 
@@ -33,6 +32,6 @@ class CreateTitlesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('titles');
+        Schema::dropIfExists('pages');
     }
 }

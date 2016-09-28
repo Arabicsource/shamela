@@ -53,6 +53,7 @@ return [
         ],
 
         'mysql' => [
+
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '3306'),
@@ -63,7 +64,7 @@ return [
             'collation' => 'utf8_unicode_ci',
             'prefix' => '',
             'strict' => true,
-            'engine' => null,
+            'engine' => 'MYISAM',
         ],
 
         'pgsql' => [
